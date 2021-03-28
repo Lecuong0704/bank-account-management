@@ -1,0 +1,47 @@
+<table>
+  <thead>
+    <tr>
+      <th
+        *ngFor="let col of columns"
+        class="text-center"
+        [ngClass]="col.classTh ? col.classTh : ''"
+        [ngStyle]="{ width: col.width ? col.width : '150px' }"
+        (click)="_sortByField(col.field)"
+      >
+        {{ col.name }}
+      </th>
+      <th class="text-center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        *ngFor="let col of columns"
+        [ngClass]="col.classTd ? col.classTd : ''"
+      >
+        <input
+          *ngIf="!col.hideInputSearch"
+          [id]="col.field"
+          (keyup)="inputSearchOnkeyup(col.field, $event)"
+          class="input-search w-100 font-italic"
+          placeholder="Search..."
+          type="text"
+        />
+      </td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let acc of data; index as i">
+      <td *ngFor="let col of columns" [class]="col.classTd">
+        {{ acc[col.field] }}
+      </td>
+      <td class="text-center">
+        <button class="btn btn-sm btn-outline-dark" (click)="_onEdit(acc._id)">
+          Edit
+        </button>
+        <button class="btn btn-sm btn-secondary" (click)="_onDelete(acc._id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

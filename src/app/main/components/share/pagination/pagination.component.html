@@ -1,0 +1,29 @@
+<div class="pagination">
+  <div
+    *ngIf="showFirstBtn"
+    class="first"
+    class="page gradient"
+    (click)="getByIndex(1)"
+  >
+    First
+  </div>
+  <div *ngIf="showFirstBtn" class="more">...</div>
+  <div *ngFor="let item of listPage">
+    <a
+      *ngIf="!item.status"
+      href="javascript:;"
+      (click)="getByIndex(item.name)"
+      class="page gradient"
+      >{{ item.name }}</a
+    >
+    <span *ngIf="item.status" class="page active">{{ item.name }}</span>
+  </div>
+  <div *ngIf="showLastBtn" class="more">...</div>
+  <div
+    *ngIf="showLastBtn"
+    class="page gradient"
+    (click)="getByIndex(totalPage)"
+  >
+    Last
+  </div>
+</div>

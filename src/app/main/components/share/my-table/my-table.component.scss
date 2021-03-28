@@ -1,0 +1,37 @@
+:host {
+  table {
+    tbody {
+      max-height: 70vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    tr {
+      border-right: 1px solid #333;
+      border-top: 1px solid #333;
+    }
+    th {
+      padding: 10px;
+      border-left: 1px solid #333;
+      border-bottom: 1px solid #333;
+      background: #e1e1e1;
+    }
+    td {
+      padding: 5px 10px;
+      border-left: 1px solid #333;
+      border-bottom: 1px solid #333;
+      .input-search {
+        border: 1px solid #e1e1e1;
+        border-radius: 4px;
+        padding: 3px 10px;
+        font-size: 12px;
+      }
+      button {
+        min-width: 70px;
+        margin-right: 5px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

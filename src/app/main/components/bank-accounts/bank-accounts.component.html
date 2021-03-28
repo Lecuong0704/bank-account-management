@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="title">Bank Accounts</div>
+    </div>
+    <div class="col-12 mb-4">
+      <div class="tools">
+        <div class="btn-add-bank-acc text-right">
+          <button
+            class="btn btn-sm btn-info btn-add-acc"
+            (click)="openModalBankAcc()"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <app-my-table
+        [columns]="listColumns"
+        [isLoading]="true"
+        [rows]="bankAccounts"
+        [totalRows]="0"
+        (onSearch)="onSearch($event)"
+        (onDelete)="onDelete($event)"
+        (onEdit)="onEdit($event)"
+        (sortByField)="sortByField($event)"
+      ></app-my-table>
+    </div>
+    <div class="col-12">
+      <app-pagination
+        #pagination
+        [totalPage]="totalPage"
+        [pageIndex]="pageIndex"
+        [pageSize]="pageSize"
+        (changePageIndex)="changePageIndex($event)"
+      ></app-pagination>
+    </div>
+  </div>
+</div>
